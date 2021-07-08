@@ -20,7 +20,7 @@ $(document).ready(function (){
                     </div>    
                 </div>`);
 
-                $('#testimonial > .loader').hide();
+                $('#testimonial .loader').hide();
                 $('#testimonial').append(carouselItem);
             });
         });   
