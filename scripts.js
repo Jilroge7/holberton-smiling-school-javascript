@@ -5,7 +5,7 @@ $(document).ready(function (){
             let carouselItem;
 
             data.forEach(function (item) {
-                if (item.id == "1") 
+                if (item.id === 1) 
                     carouselItem = $('<div class="carousel-item active">');
                 else
                     carouselItem = $('<div class="carousel-item">');
