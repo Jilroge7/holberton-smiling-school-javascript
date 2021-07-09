@@ -61,6 +61,7 @@
                 }
 
                 cardBlock.append(`<img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                                    <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                                     <div class="card-body row">
                                         <h5 class="card-title font-weight-bold">${item.title}</h5>
                                         <p class="card-text">${item.sub-title}</p>
@@ -118,6 +119,7 @@
                 }
 
                 cardBlock.append(`<img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                                    <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                                     <div class="card-body row">
                                         <h5 class="card-title font-weight-bold">${item.title}</h5>
                                         <p class="card-text">${item.sub-title}</p>

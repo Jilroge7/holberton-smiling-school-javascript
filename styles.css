@@ -169,13 +169,11 @@ body {
     height: auto;
 }
 
-.card-thumbnail::before {
+.play-button {
     position: absolute;
-    content: "";
-    background-image: url("images/play.png");
-    width: 64px;
-    height: 64px;
-    pointer-events: none;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card-title {
@@ -341,7 +339,7 @@ body {
     font-size: 2rem;
 }
 
-.purple-smile {
+.purple-smile-courses {
     color: var(--color-light-purple);
 }
 
