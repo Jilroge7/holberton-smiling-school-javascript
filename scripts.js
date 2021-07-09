@@ -79,7 +79,6 @@
 
                 $('.popular-tutorials .loader').hide();
                 $('.popular-tutorials').append(cardBlock);
-                })
             })
         })
     }
