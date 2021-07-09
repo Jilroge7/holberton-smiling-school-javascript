@@ -257,10 +257,6 @@ body {
 }
 
 /* Pricing page */
-.pricing-header .header-hero-title {
-    font-size: 1.5rem;
-}
-
 .pricing-header .main-intro-smile {
     width: 30px;
     height: 24px;
@@ -273,8 +269,12 @@ body {
     font-family: 'Coiny', cursive;
 }
 
-.pricing-pro-title {
-    font-size: 60px;
+.header-hero h2 {
+    font-size: 1.5rem;
+}
+
+.pricing-header .header-hero-title {
+    font-size: 3.50rem;
 }
 
 .price-annual {
@@ -284,10 +284,55 @@ body {
 .price-monthly {
     font-size: .75rem;
     opacity: 0.5;
+    color: var(--color-lighter);
 }
 
 .price-grid div.row .div {
     font-size: 1.125rem;
+}
+
+.holberton_school-icon-check {
+    color: var(--color-check);
+    font-size: 1.75rem;
+}
+
+.price-grid .col, .price-grid .col-md {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.price-grid-text > div.row {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.price-grid-heading {
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+#signal-logo {
+    width: 88px;
+    height: 35px;
+}
+
+.faq-header {
+    font-size: 3.75rem;
+    font-weight: 300;
+}
+
+.faq-question {
+    font-size: 1rem;
+    color: --color-blue-black;
+}
+
+.faq-ans {
+    font-size: .875rem;
+    color: var(--color-blue-black);
+    opacity: 0.5;
 }
 
 

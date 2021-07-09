@@ -1,4 +1,5 @@
-$(document).ready(function (){
+
+    /* Dynamic quotes for 1-homepage.html and pricing.html */
     function getTestimonialQuotes() {
         let url =  "https://smileschool-api.hbtn.info/quotes";
         $.get(url, function (data) {
@@ -25,6 +26,12 @@ $(document).ready(function (){
             });
         });   
     }
+$(document).ready(function (){
+    if (document.URL.endsWith('homepage.html')) {
+        getTestimonialQuotes();
+    } else if (document.URL.endsWith('pricing.html')) {
+        getTestimonialQuotes();
+    }
     
-    getTestimonialQuotes();
+
 });
