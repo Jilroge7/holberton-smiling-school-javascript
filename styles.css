@@ -42,6 +42,7 @@ body {
 .nav-item {
     font-size: .75rem;
     font-weight: 700;
+    font-family: 'source_sans_pro';
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -335,6 +336,37 @@ body {
     opacity: 0.5;
 }
 
+.courses-hero-title {
+    font-family: 'Coiny', cursive;
+    font-size: 2rem;
+}
+
+.purple-smile {
+    color: var(--color-light-purple);
+}
+
+.text-muted {
+    opacity: 0.3;
+}
+
+.form-control {
+    background-color: var(--color-light-purple);
+    opacity: 0.25;
+    font-size: 23px;
+    background: #FFFF;
+    font-family: 'source_sans_pro';
+    border-bottom: 2px solid #deaeec33;
+}
+
+.label-text {
+    font-family: 'source_sans_pro';
+    font-size: 12px;
+    line-height: 15px;
+}
+
+#keyword-box {
+    font-weight: 300;
+}
 
 .footer {
     background-color: var(--color-blue-black);
