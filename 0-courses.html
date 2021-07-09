@@ -60,25 +60,33 @@
             </div>
         </header>
         <main>
-            <div class="purple-part-1 search container-fluid">
-                <form>
-                    <div class="row pt-4 text-white pb-4 px-5 mx-5">
-                        <div class="col form-group has-feedback">
-                            <label for="keyword-box" class="control-label text-uppercase font-weight-bold label-text">keywords</label>
-                            <input type="text" class="form-control text-white border-0" id="keyword-box" placeholder=" Search by keywords">
-                            <span class="holberton_school-icon-search_1 form-control-feedback"></span>
+            <nav class="purple-part-1 container-fluid navbar mx-0 row justify-content-around">
+                <div class="keyword-search col-12 col-lg-4 col-xl-3 text-white">
+                        <span class="holberton_school-icon-search_1"></span>
+                        <label for="keyword-box" class="justify-content-start text-white text-uppercase font-weight-bold label-text">keywords</label>
+                        <input id="keyword-box" type="search" class="form-control text-white border-0 mr-sm-2 " id="keyword-box" placeholder=" Search by keywords">      
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <label for="drop-down" class="text-uppercase font-weight-bold label-text justify-content-start text-white">topic</label>
+                    <a id="select-topic" class="nav-link dropdown-toggle" href="#" id="drop-down" role="button" data-toggle="dropdown">All</a>
+                        <div class="dropdown-menu text-white border-0" id="topic-box">
+                            <a class="dropdown-item" href="#">All</a>
+                            <a class="dropdown-item" href="#">Novice</a>
+                            <a class="dropdown-item" href="#">Intermediate</a>
+                            <a class="dropdown-item" href="#">Expert</a>  
                         </div>
-                        <div class="col">
-                            <label for="topic-box" class="text-uppercase font-weight-bold label-text">topic</label>
-                            <input type="text" class="form-control text-white border-0" id="topic-box" placeholder=" Novice">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <label for="drop-down" class="text-uppercase font-weight-bold label-text justify-content-start text-white">sort by</label>
+                    <a id="select-sort" class="nav-link dropdown-toggle" href="#" id="drop-down" role="button" data-toggle="dropdown">Most Popular</a> 
+                        <div class="dropdown-menu text-white border-0" id="topic-box">
+                            <a class="dropdown-item" href="#">Most Popular</a>
+                            <a class="dropdown-item" href="#">Most Recent</a>
+                            <a class="dropdown-item" href="#">Most Reviewed</a>
                         </div>
-                        <div class="col">
-                            <label for="sort-box" class="text-uppercase font-weight-bold label-text">sort by</label>
-                            <input type="text" class="form-control text-white border-0" id="topic-box" placeholder=" Most Popular">
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </nav>
+            
             <div class="container">
                 <div class="pt-5 mb-n3 px-1 text-muted">11 videos</div>
                 <div class="row justify-content-center">
