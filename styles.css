@@ -164,6 +164,10 @@ body {
     font-weight: 700;
 }
 
+.card {
+    border: none;
+}
+
 .card img {
     width: 100%;
     height: auto;
