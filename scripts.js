@@ -56,7 +56,7 @@
 
                 $('#review-slide' + screenSize + slideNo).append(
                     `<!--slide ${item.id} -->
-                    <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" width="18rem">
+                    <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" style="width: 18rem">
                         <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
                         <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                         <div class="card-body row">
@@ -109,7 +109,7 @@
 
                 $('#video-slide' + screenSize + slideNo).append(
                     `<!--slide ${item.id} -->
-                    <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" width="18rem">
+                    <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" style="width: 18rem">
                         <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
                         <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                         <div class="card-body row">
@@ -131,6 +131,64 @@
             updateSlide(screenSize);    
         });
     }
+
+/* searchable video card for courses.html */
+function getCourses(searchQ = '', topics = 'all', sortBy = "most_popular") {
+    $('#courses-video').empty();
+    $('#courses-video').append($('<div class="loader">'));
+    let url = "https://smileschool-api.hbtn.info/courses";
+
+    let paramList = {
+        'All': 'all',
+        'Novice': 'novice',
+        'Intermediate': 'intermediate',
+        'Expert': 'expert',
+        'Most Popular': 'most_popular',
+        'Most Recent': 'most_recent',
+        'Most Reviewed': 'most-reviewed'
+    };
+
+    $.get(url, { q: searchQ, topic: paramList[topics], sort: paramList[sortBy] }, function (data) {
+        let slideNo = 0;
+        let cardNo = 0;
+        let courses = data.courses;
+        let stars = `<img src="images/star_on.png" alt="star on" height="15px"</img>`;
+        let noStar = `<img src="images/star_off.png" alt="star off" height="15px">`;
+
+        courses.forEach(function (item) {
+            cardNo++;
+
+            if (cardNo === 1) {
+                slideNo++;
+                $('#courses-video').append($(`<div id="course-row${slideNo}" class="row justify-content-start">`));
+            }
+
+            $('#course-row' + slideNo).append(
+                `<!--slide ${item.id} -->
+                <div class="card container col-12 col-md-6 col-lg-4 col-xl-3 mx-0 my-5 pt-4 card-${cardNo}" style="width: 18rem">
+                    <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                    <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
+                    <div class="card-body row">
+                        <h5 class="card-title font-weight-bold">${item.title}</h5>
+                        <p class="card-text">${item["sub-title"]}</p>
+                        <div class="review">
+                            <img class="rounded-circle profile-1" src=${item.author_pic_url}>
+                            <span class="rating-text p-1 pl-2">${item.author}</span>
+                        </div>
+                        <span class="rating stars pt-1">
+                            ${stars.repeat(item.star)}
+                            ${noStar.repeat(5 - item.star)}
+                        </span>
+                        <span class="review-rate stars pt-1">${item.duration}</span>
+                    </div>
+                </div>`);                        
+        })             
+        $('#courses-video .loader').hide();
+        $('#courses-video').prepend($('<div class="py-5 mb-n3" id="video-count">' + courses.length + ' videos</div>'));    
+    });
+}
+
+/* helper functions */
     function getSize() {
         if ($(window).width() >= 1200)
             return 'xl';
@@ -192,7 +250,18 @@ $(document).ready(function () {
         });
     } else if (document.URL.endsWith('pricing.html')) {
         getTestimonialQuotes();
-    }
-    
+    } else if (document.URL.endsWith('courses.html')) {
+        getCourses();
 
+        $('#topic-box > .dropdown-item').click(function (event) {
+            event.preventDefault();
+            $('#select-topic').html($(this).html());
+            getCourses($('#keyword-box').val(), $('#select-topic').html(), $(this).html(), $('#select-sort').html());
+        });
+        $('#topic-box > .dropdown-item').click(function (event) {
+            event.preventDefault();
+            $('#').html($(this).html());
+            getCourses($('#keyword-box').val(), $('#select-topic').html(), $(this).html());
+        });
+    }
 });
