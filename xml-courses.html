@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Courses</title>
+        <meta name="description" content="Design a webpage with Javascript">
+        <link rel="icon" type="image/png" href="images/favicon.ico">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Coiny&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap, JQuery -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="holberton-style.css">
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    <body>
+        <header class="courses-header bg-courses text-white text-center">
+            <nav class="navbar navbar-expand-md navbar-dark bg-transparent container-md justify-content-start pt-4">  
+                <button class="navbar-toggler align-self-start text-left col-3 pt-2 border-0" type="button" data-toggle="collapse" data-target="#nav-list">
+                    <span>
+                        <svg class="hamburger" viewBox="0 0 100 100" width="20px" height="20px">
+                            <rect width="100" height="10" rx="10" fill="white"></rect>
+                            <rect y="30" width="70" height="10" rx="10" fill="white"></rect>
+                            <rect y="60" width="100" height="10" rx="10" fill="white"></rect>
+                        </svg>
+                    </span>
+                </button>
+                <a class="navbar-brand pt-2 col-6 col-md-3" href="#brand">
+                    <img class="d-block d-md-inline mr-md-2 mb-2 mx-auto" src="images/smile_off.png" alt="smile logo" width="37px" height="30">
+                    <img class="d-block d-md-inline mx-auto" src="images/logo.png" alt="logo" width="114">
+                </a>
+                <div class="collapse navbar-collapse text-center justify-content-end" id="nav-list">
+                    <ul class="navbar-nav text-uppercase font-weight-bold">
+                        <li class="nav-item active">
+                            <a href="#courses" class="nav-link">courses<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="#pricing" class="nav-link">pricing</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="#login" class="nav-link">login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="courses-hero container">
+                <div class="row justify-content-center">
+                    <h2 class="courses-hero-title d-none d-sm-block col-sm-12 col-md-10 col-lg-7 col-xl-6 py-2">« Don't cry because it's over. <span class="purple-smile-courses">Smile</span> because it happened. »</h2>
+                </div>      
+            </div>
+        </header>
+        <main>
+            <nav class="purple-part-1 container-fluid navbar mx-0 row justify-content-around">
+                <div class="keyword-search col-12 col-lg-4 col-xl-3 text-white">
+                        <span class="holberton_school-icon-search_1"></span>
+                        <label for="keyword-box" class="justify-content-start text-white text-uppercase font-weight-bold label-text">keywords</label>
+                        <input id="keyword-box" type="search" class="form-control text-white border-0 mr-sm-2 " id="keyword-box" placeholder=" Search by keywords">      
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <label for="drop-down" class="text-uppercase font-weight-bold label-text justify-content-start text-white">topic</label>
+                    <a id="select-topic" class="nav-link dropdown-toggle" href="#" id="drop-down" role="button" data-toggle="dropdown">All</a>
+                        <div class="dropdown-menu text-white border-0" id="topic-box">
+                            <a class="dropdown-item" href="#">All</a>
+                            <a class="dropdown-item" href="#">Novice</a>
+                            <a class="dropdown-item" href="#">Intermediate</a>
+                            <a class="dropdown-item" href="#">Expert</a>  
+                        </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <label for="drop-down" class="text-uppercase font-weight-bold label-text justify-content-start text-white">sort by</label>
+                    <a id="select-sort" class="nav-link dropdown-toggle" href="#" id="drop-down" role="button" data-toggle="dropdown">Most Popular</a> 
+                        <div class="dropdown-menu text-white border-0" id="topic-box">
+                            <a class="dropdown-item" href="#">Most Popular</a>
+                            <a class="dropdown-item" href="#">Most Recent</a>
+                            <a class="dropdown-item" href="#">Most Reviewed</a>
+                        </div>
+                </div>
+            </nav>
+            <div class="container courses-video" id="courses-video">
+                <div class="loader"></div>
+            </div>
+            <footer class="footer flex-column d-md-flex justify-content-around text-center">
+                <div class="footer-container container-xl d-md-flex justify-content-between px-5">
+                    <a class="navbar-brand mt-md-4 pt-5 pb-md-4" href="#brand">
+                        <img class="d-inline mr-2 mb-2 smile-off" src="images/smile_off.png" alt="smile logo" width="37px">
+                        <img class="d-inline smileschool" src="images/logo.png" alt="logo" width="114">
+                    </a>
+                    <div class="social-media text-white pt-4 pb-4 mt-md-4 pt-md-5 pb-md-4">
+                        <a class="holberton_school-icon-ic_facebook"></a>
+                        <a class="holberton_school-icon-ic_twitter ml-md-3"></a>
+                        <a class="holberton_school-icon-ic_instagram ml-md-3"></a>
+                    </div>
+                </div>
+                <p class="copyright m-0 pb-4">©smileschool 2020</p>
+            </footer>
+        </main>
+        <!-- Javascript source file -->
+        <script src="xml-scripts.js"></script>
+    </body>
+</html>
