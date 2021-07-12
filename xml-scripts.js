@@ -85,7 +85,7 @@
         $('#latest-videos').append($('<div class="loader">'));
         let url = "https://smileschool-api.hbtn.info/xml/latest-videos";
 
-        $.get(url, function (xmldata) {
+        $.get(url, function (xmlData) {
             let slideNo = 0;
             let cardNo = 0;
             let data = $(xmlData);
