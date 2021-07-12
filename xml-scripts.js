@@ -1,21 +1,21 @@
 /* Get testionial quotes for homepage and pricing */
     function getTestimonialQuotes() {
-        let url =  "https://smileschool-api.hbtn.info/quotes";
-        $.get(url, function (data) {
+        let url =  "https://smileschool-api.hbtn.info/xml/quotes";
+        $.get(url, function (xmlData) {
             let carouselItem;
-
-            data.forEach(function (item) {
-                if (item.id === 1) 
+            let data = $(xmlData);
+            data.find('quote').each(function (item) {
+                if ($(this).attr('id') === '1') 
                     carouselItem = $('<div class="carousel-item active">');
                 else
                     carouselItem = $('<div class="carousel-item">');
 
                 carouselItem.append(`<div class="row d-flex my-5 justify-content-center align-items-center mx-auto">
-                        <img class="odd-dude rounded-circle d-block img-fluid mr-2 ml-md-auto" src=${item.pic_url} alt="odd-dude" width="148px" height="148px">
+                        <img class="odd-dude rounded-circle d-block img-fluid mr-2 ml-md-auto" src=${$(this).find('pic_url').text()} alt="odd-dude" width="148px" height="148px">
                         <div class="carousel-text row p-0 col-md-6 ml-4 mr-auto container">    
-                            <p class="testimonial-text col-12 p-0">${item.text}</p>
-                            <p class="testimonial-author font-weight-bold col-12 p-0 m-0">${item.name}</p>
-                            <p class="testimonial-origin font-italic col-12 p-0 m-0">${item.title}</p>
+                            <p class="testimonial-text col-12 p-0">${$(this).find('text').text()}</p>
+                            <p class="testimonial-author font-weight-bold col-12 p-0 m-0">${$(this).find('name').text()}</p>
+                            <p class="testimonial-origin font-italic col-12 p-0 m-0">${$(this).find('title').text()}</p>
                         </div>
                     </div>    
                 </div>`);
@@ -29,15 +29,16 @@
     function getPopularTutorials(screenSize) {
         $('#popular-tutorials').empty();
         $('#popular-tutorials').append($('<div class="loader">'));
-        let url = "https://smileschool-api.hbtn.info/popular-tutorials";
+        let url = "https://smileschool-api.hbtn.info/xml/popular-tutorials";
 
-        $.get(url, function (data) {
+        $.get(url, function (xmlData) {
             let slideNo = 0;
             let cardNo = 0;
+            let data = $(xmlData);
             let stars = `<img src="images/star_on.png" alt="star on" height="15px"</img>`;
             let noStar = `<img src="images/star_off.png" alt="star off" height="15px">`;
 
-            data.forEach(function (item) {
+            data.find('video').each(function (item) {
                 if (screenSize === 'sm' && cardNo > 0)
                     cardNo = 0;
                 else if (screenSize === 'md' && cardNo > 1)
@@ -55,22 +56,22 @@
                 }
 
                 $('#review-slide' + screenSize + slideNo).append(
-                    `<!--slide ${item.id} -->
+                    `<!--slide ${$(this).attr('id')} -->
                     <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" style="width: 18rem">
-                        <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                        <img class="card-img-top card-thumbnail" src=${$(this).find('thumb_url').text()}>
                         <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                         <div class="card-body row">
-                            <h5 class="card-title font-weight-bold">${item.title}</h5>
-                            <p class="card-text">${item["sub-title"]}</p>
+                            <h5 class="card-title font-weight-bold">${$(this).find('title').text()}</h5>
+                            <p class="card-text">${$(this).find('sub-title').text()}</p>
                             <div class="review">
-                                <img class="rounded-circle profile-1" src=${item.author_pic_url}>
-                                <span class="rating-text p-1 pl-2">${item.author}</span>
+                                <img class="rounded-circle profile-1" src=${$(this).find('author_pic_url').text()}>
+                                <span class="rating-text p-1 pl-2">${$(this).find('author').text()}</span>
                             </div>
                             <span class="rating stars pt-1">
-                                ${stars.repeat(item.star)}
-                                ${noStar.repeat(5 - item.star)}
+                                ${stars.repeat($(this).attr('star'))}
+                                ${noStar.repeat(5 - $(this).attr('star'))}
                             </span>
-                             <span class="review-rate stars pt-1">${item.duration}</span>
+                             <span class="review-rate stars pt-1">${$(this).find('duration').text()}</span>
                         </div>
                      </div>`);                        
             })             
@@ -82,15 +83,16 @@
     function getLatestVideos(screenSize) {
         $('#latest-videos').empty();
         $('#latest-videos').append($('<div class="loader">'));
-        let url = "https://smileschool-api.hbtn.info/latest-videos";
+        let url = "https://smileschool-api.hbtn.info/xml/latest-videos";
 
-        $.get(url, function (data) {
+        $.get(url, function (xmldata) {
             let slideNo = 0;
             let cardNo = 0;
+            let data = $(xmlData);
             let stars = `<img src="images/star_on.png" alt="star on" height="15px"</img>`;
             let noStar = `<img src="images/star_off.png" alt="star off" height="15px">`;
 
-            data.forEach(function (item) {
+            data.find('video').each(function (item) {
                 if (screenSize === 'sm' && cardNo > 0)
                     cardNo = 0;
                 else if (screenSize === 'md' && cardNo > 1)
@@ -108,22 +110,22 @@
                 }
 
                 $('#video-slide' + screenSize + slideNo).append(
-                    `<!--slide ${item.id} -->
+                    `<!--slide ${$(this).attr('id')} -->
                     <div class="card container mx-0 my-5 pt-4 screen-size${screenSize} card-${cardNo}" style="width: 18rem">
-                        <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                        <img class="card-img-top card-thumbnail" src=${$(this).find('thumb_url').text()}>
                         <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                         <div class="card-body row">
-                            <h5 class="card-title font-weight-bold">${item.title}</h5>
-                            <p class="card-text">${item["sub-title"]}</p>
+                            <h5 class="card-title font-weight-bold">${$(this).find('title').text()}</h5>
+                            <p class="card-text">${$(this).find('sub-title').text()}</p>
                             <div class="review">
-                                <img class="rounded-circle profile-1" src=${item.author_pic_url}>
-                                <span class="rating-text p-1 pl-2">${item.author}</span>
+                                <img class="rounded-circle profile-1" src=${$(this).find('author_pic_url').text()}>
+                                <span class="rating-text p-1 pl-2">${$(this).find('author').text()}</span>
                             </div>
                             <span class="rating stars pt-1">
-                                ${stars.repeat(item.star)}
-                                ${noStar.repeat(5 - item.star)}
+                                ${stars.repeat($(this).attr('star'))}
+                                ${noStar.repeat(5 - $(this).attr('star'))}
                             </span>
-                             <span class="review-rate stars pt-1">${item.duration}</span>
+                             <span class="review-rate stars pt-1">${$(this).find('duration').text()}</span>
                         </div>
                      </div>`);                        
             })             
@@ -136,7 +138,7 @@
 function getCourses(searchQ = '', topics = 'all', sortBy = "most_popular") {
     $('#courses-video').empty();
     $('#courses-video').append($('<div class="loader">'));
-    let url = "https://smileschool-api.hbtn.info/courses";
+    let url = "https://smileschool-api.hbtn.info/xml/courses";
 
     let paramList = {
         'All': 'all',
@@ -151,11 +153,11 @@ function getCourses(searchQ = '', topics = 'all', sortBy = "most_popular") {
     $.get(url, { q: searchQ, topic: paramList[topics], sort: paramList[sortBy] }, function (data) {
         let slideNo = 0;
         let cardNo = 0;
-        let courses = data.courses;
+        let courses = $(data).find('course');
         let stars = `<img src="images/star_on.png" alt="star on" height="15px"</img>`;
         let noStar = `<img src="images/star_off.png" alt="star off" height="15px">`;
 
-        courses.forEach(function (item) {
+        courses.each(function () {
             cardNo++;
 
             if (cardNo === 1) {
@@ -166,20 +168,20 @@ function getCourses(searchQ = '', topics = 'all', sortBy = "most_popular") {
             $('#course-row' + slideNo).append(
                 `<!--slide ${item.id} -->
                 <div class="card container col-12 col-md-6 col-lg-4 col-xl-3 mx-0 my-5 pt-4 card-${cardNo}" style="width: 18rem">
-                    <img class="card-img-top card-thumbnail" src=${item.thumb_url}>
+                    <img class="card-img-top card-thumbnail" src=${$(this).find('thumb_url')}>
                     <img src="images/play.png" class="play-button" style="width:64px;height:64px;">
                     <div class="card-body row">
-                        <h5 class="card-title font-weight-bold">${item.title}</h5>
-                        <p class="card-text">${item["sub-title"]}</p>
+                        <h5 class="card-title font-weight-bold">${$(this).find('title')}</h5>
+                        <p class="card-text">${$(this).find('sub-title')}</p>
                         <div class="review">
-                            <img class="rounded-circle profile-1" src=${item.author_pic_url}>
-                            <span class="rating-text p-1 pl-2">${item.author}</span>
+                            <img class="rounded-circle profile-1" src=${$(this).find('author_pic_url')}>
+                            <span class="rating-text p-1 pl-2">${$(this).find('author')}</span>
                         </div>
                         <span class="rating stars pt-1">
-                            ${stars.repeat(item.star)}
-                            ${noStar.repeat(5 - item.star)}
+                            ${stars.repeat($(this).attr('star'))}
+                            ${noStar.repeat(5 - $(this).attr('star'))}
                         </span>
-                        <span class="review-rate stars pt-1">${item.duration}</span>
+                        <span class="review-rate stars pt-1">${$(this).find('duration')}</span>
                     </div>
                 </div>`);                        
         })             
