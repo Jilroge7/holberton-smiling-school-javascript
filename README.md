@@ -1,6 +1,6 @@
 # 0x0F. Build a web app in Javascript
 
-[Homepage Hero](https://github.com/Jilroge7/holberton-smiling-school-javascript/images/Homepage-hero.png)
+![Homepage Hero](/images/Homepage-hero.png)
 
 ### [0. Reuse and polish your Bootstrap integration](./README.md)
 
