@@ -76,3 +76,9 @@
     - Search value is changing
     - A new Topic is selected
     - A new Sort by is selected
+
+---
+---
+
+## Author:art:
+* **Jill Rogers** - [Jilroge7](https://github.com/Jilroge7/holbertonschool-interview.git
